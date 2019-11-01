@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { default as InputFile } from './components/inputfile'
 import '../css/styles.scss';
 import Timer from './components/timer';
+import Countdown from './components/countdown';
 
 const App = () => {
   const [file, setFile] = useState(null);
@@ -29,6 +30,9 @@ const App = () => {
           </div>
           <div style={{ marginRight: '80px', marginTop: '-30px'}}>
             <Timer />
+            <hr />
+            <h3>Days to go</h3>
+            <Countdown date={`2019-11-15T10:00:00`} />
           </div>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '05px' }}>
