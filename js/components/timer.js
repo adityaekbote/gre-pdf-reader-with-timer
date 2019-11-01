@@ -24,7 +24,8 @@ class Clock extends React.Component {
     
     onSubmit(event) {
       event.preventDefault();
-      const strSeconds = this.refs.seconds.value;
+      const strSeconds = this.refs.seconds.value || `${this.props.count}`;
+      if (strSeconds == '0') return;
       if(strSeconds.match(/[0-9]/)) {
         this.refs.seconds.value = '';
         this.props.onSetCountdown(parseInt(strSeconds, 10));
@@ -35,7 +36,8 @@ class Clock extends React.Component {
       return (
         <form ref="form" onSubmit={this.onSubmit.bind(this)}>
           <input type="text" ref="seconds" placeholder="enter time in seconds"/>
-          <input type="submit" value="Start"></input>
+          {!this.props.running ?
+          <input type="submit" value={"Start"}></input> : null}
         </form>
       )
     }
@@ -72,10 +74,13 @@ class Clock extends React.Component {
     }
     
     handleStart() {
+      if (this.state.count < 1) {
+        return;
+      }
       this.timer = setInterval(() => {
         const newCount = this.state.count - 1;
         this.setState(
-          {count: newCount >= 0 ? newCount : 0, playing: true}
+          {count: newCount >= 0 ? newCount : 0, running: true}
         );
       }, 1000);
     }
@@ -105,14 +110,18 @@ class Clock extends React.Component {
     }
     
     render() {
-      const {count} = this.state;
+      const {count, running} = this.state;
       if (!this.state.count && this.state.running) {
         this.beepAudio.play();
       }
       return (
         <div>
           <Clock time={count}/>
-          <Input onSetCountdown={this.handleCountdown.bind(this)}/>
+          <Input onSetCountdown={this.handleCountdown.bind(this)} running={running} count={count} />
+          {
+            running ? <Button label="Pause" onClickHandler={this.handleStop.bind(this)}/> : null
+          }
+          
           <Button label="Stop" onClickHandler={this.handleStop.bind(this)}/>
           <Button label="Reset" onClickHandler={this.handleReset.bind(this)}/>
         </div>
