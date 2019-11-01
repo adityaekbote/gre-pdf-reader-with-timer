@@ -9,7 +9,7 @@ export default class InputFile extends React.Component {
     render() {
         return (
             <div className="InputFile">
-              <Button onClick={this.triggerInput} type="primary">
+              <Button onClick={this.triggerInput} type="primary" style={{ outline: 0 }}>
                   <input 
                       name="file" 
                       type="file" 

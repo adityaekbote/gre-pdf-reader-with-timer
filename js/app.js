@@ -14,7 +14,8 @@ const App = () => {
   }
   
   return (<>
-    <div style={{ width: '20%', padding: '5px' }}>
+        <div style={{ margin: 'auto', width: '10%', color: 'green' }}><h3>GRE Study Site</h3></div>
+    <div style={{ width: '20%', padding: '0px 5px 5px 5px' }}>
       <InputFile uploadFileHandler={uploadFileHandler}>
         Select your study book PDF!
       </InputFile>
