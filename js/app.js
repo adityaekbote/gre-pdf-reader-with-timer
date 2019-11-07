@@ -33,6 +33,17 @@ const App = () => {
             <hr />
             <h3>Days to go</h3>
             <Countdown date={`2019-11-15T10:00:00`} />
+            <hr />
+            <div style={{ marginRight: '80px', marginTop: '30px'}}>
+          <form target="_blank" action='https://dictionary.cambridge.org/search/british/direct/?utm_source=widget_searchbox_source&utm_medium=widget_searchbox&utm_campaign=widget_tracking' method='post'>
+              <table style={{"fontSize":"10px","background":"#292929","borderCollapse":"collapse","borderSpacing":"0","width":"200px"}} >
+                <tbody> <tr> <td colspan='2' style={{"padding":"0","background":"none","border":"none"}}>
+                  <a href='https://dictionary.cambridge.org/' style={{"display":"block","background":"transparent url(https://dictionary.cambridge.org/external/images/freesearch/sbl.png?version=5.0.56) no-repeat 5px 6px","height":"32px"}} target="blank"></a>
+                  </td> </tr> <tr> <td style={{"width":"68px","background":"none","border":"none","padding":"4px"}}>
+                    <input style={{"width":"100%","display":"block","fontSize":"10px","padding":"2px","border":"none"}} name='q' />
+                    </td> <td style={{"width":"50px","background":"none","border":"none","padding":"0 4px 0 0"}}> 
+                    <input style={{"width":"100%","display":"block","fontSize":"10px","padding":"2px","border":"none","float":"right","background":"#d0a44c"}} type='submit' value='Look it up' /> </td> </tr> </tbody> </table> </form>
+          </div>
           </div>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '05px' }}>
