@@ -28,7 +28,7 @@ class Clock extends React.Component {
       if (strSeconds == '0') return;
       if(strSeconds.match(/[0-9]/)) {
         this.refs.seconds.value = '';
-        this.props.onSetCountdown(parseInt(strSeconds, 10));
+        this.props.onSetCountdown(parseInt(strSeconds, 10), this.refs.seconds.value ? this.refs.seconds.value : null);
       }
     }
     
