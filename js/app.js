@@ -49,7 +49,7 @@ const App = () => {
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '05px' }}>
         <h2>Learn Repeating Offenders Wordlist!</h2>
         <iframe id="quizlet_iframe" src="https://quizlet.com/297264856/learn/embed?x=1jj1" height="500" width="100%" style={{border:0}}></iframe>
-        <button className="button yellow" style={{ width: '120px', height: '40px' }} onClick={() => document.getElementById('quizlet_iframe').contentWindow.location.reload()}>Refresh</button>
+        <button className="button yellow" style={{ width: '120px', height: '40px' }} onClick={() => { var f = document.getElementById('quizlet_iframe'); f.src = f.src; }}>Refresh</button>
       </div>
       </>
     	)
